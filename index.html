@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Special Offer</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+
+<script type="text/javascript">
+var Arrow = "down";
+$(document).ready(function () {
+	
+	var bkgSelect = $('.selector').css("background", "url('images/arrow-"+Arrow+".png') 245px center no-repeat");
+	
+	
+	
+	//alert(SelectOption);
+	
+	
+	$('.nextTab').click(function () {
+
+		var text1 = $('#toggle-view li').children('div#bottom1');
+		var text2 = $('#toggle-view li').children('div#bottom2');
+		var text3 = $('#toggle-view li').children('div#bottom3');
+
+		if (text2.is(':hidden') && text3.is(':hidden')) {
+			text1.slideUp('200');
+			text2.slideDown('200');
+			
+		} else if (text2.is(':visible') && text3.is(':hidden')) {
+			text2.slideUp('200');
+			text3.slideDown('200');
+			
+		}
+		
+	});
+	
+	$('.selector').click(function () {
+		
+				
+		var SelectOption = $('#selectButton option:selected');
+
+		if(Arrow == 'down'){
+			//alert(Arrow);
+			Arrow = 'up';
+			
+			changeArrow(Arrow);
+			
+			}else if(Arrow == 'up'){
+				
+				Arrow = 'down';
+				
+				changeArrow(Arrow);
+				
+				}
+
+		});
+		//$('#selectButton option').mouseover(function () {
+//			Arrow = 'down';
+//				
+//			changeArrow(Arrow);
+//			});
+
+		function changeArrow(Arrow){
+		
+		$('.selector').css("background", "url('images/arrow-"+Arrow+".png') 245px center no-repeat");
+		}
+		
+		$('body').bind('click', function(e) {
+			if($(e.target).closest('.selector').length == 0) {
+				Arrow = 'down';
+				
+				changeArrow(Arrow);
+			}
+		});
+
+});
+
+
+</script>
+</head>
+
+<body>
+<div id="wrapper">
+	<div id="container">
+    	<div id="block">
+        	<div id="top">
+            	
+        
+        	</div><!--end top-->
+            <ul id="toggle-view">
+			<li>
+            <div id="bottom1" class="bottom">
+            	<p>We want to make it easy for you to look and feel</p> <p>your best, after all, <span class="bolder">first impressions count.</span></p>
+				<p>And with 50% off your first hair removal and skin</p> <p>treatment you can impress for less.</p>
+ 
+				<div class="break"></div>
+				<p><a>Click below to claim your promo code</a></p>
+                <div class="button nextTab"><span>GET MY PROMO CODE</span></div>
+        
+        	</div><!--end bottom1-->
+            </li>
+            <li>
+            <div id="bottom2" class="bottom" style="display:none;">
+            	<form id="userInfo">
+                	<label>Firstname:</label>
+                    <input type="text" id="Firstname" />
+                    <label>Lastname:</label>
+                    <input type="text" id="Lastname" />
+                    <label>Email:</label>
+                    <input type="text" id="Email" />
+                    <label>Mobile:</label>
+                    <input type="text" id="Mobile" />
+                    <label>Choose clinic:</label>
+                    <div class="selector">
+                    <select id="selectButton">
+                    	<option></option>
+                        <option name="Laser Clinics Australia Bondi Junction">Laser Clinics Australia Bondi Junction</option>
+                        <option value="10015" name="Laser Clinics Australia Brookvale">Laser Clinics Australia Brookvale</option>
+                        <option value="10016" name="Laser Clinics Australia Canberra">Laser Clinics Australia Canberra</option>
+                        <option value="10017" name="Laser Clinics Australia Caringbah">Laser Clinics Australia Caringbah</option>
+                        <option value="10013" name="Laser Clinics Australia Chatswood">Laser Clinics Australia Chatswood</option>
+                        <option value="10031" name="Laser Clinics Australia Darlinghurst">Laser Clinics Australia Darlinghurst</option>
+                        <option value="10018" name="Laser Clinics Australia Drummoyne">Laser Clinics Australia Drummoyne</option>
+                        <option value="10019" name="Laser Clinics Australia Erina">Laser Clinics Australia Erina</option>
+                        <option value="10020" name="Laser Clinics Australia Hurstville">Laser Clinics Australia Hurstville</option>
+                        <option value="16170" name="Laser Clinics Australia Newcastle">Laser Clinics Australia Newcastle</option>
+                        <option value="10021" name="Laser Clinics Australia North Rocks">Laser Clinics Australia North Rocks</option>
+                        <option value="10022" name="Laser Clinics Australia North Ryde">Laser Clinics Australia North Ryde</option>
+                        <option value="10023" name="Laser Clinics Australia North Sydney">Laser Clinics Australia North Sydney</option>
+                        <option value="10024" name="Laser Clinics Australia Parramatta">Laser Clinics Australia Parramatta</option>
+                        <option value="10025" name="Laser Clinics Australia Penrith">Laser Clinics Australia Penrith</option>
+                        <option value="10026" name="Laser Clinics Australia Potts Point">Laser Clinics Australia Potts Point</option>
+                        <option value="10027" name="Laser Clinics Australia Rouse Hill">Laser Clinics Australia Rouse Hill</option>
+                        <option name="Laser Clinics Australia CBD Pitt St">Laser Clinics Australia Sydney CBD Pitt St</option>
+                        <option name="Laser Clinics Australia CBD macquarie St">Laser Clinics Australia Sydney CBD Macquarie St</option>
+                    </select>
+                    </div>
+                    <input type="submit" value="SMS MY PROMO CODE" class="submitBut nextTab"/>
+                </form>
+        
+        	</div><!--end bottom2-->
+            </li>
+            <li>
+            <div id="bottom3" class="bottom" style="display:none;">
+            	<p><span class="bolder">Your SMS will be sent shortly.</span></p>
+				 
+				<div class="break" style="height:30px;"></div>
+                <p>In the meantime why not browse our </p>
+				<p style=" line-height:0px;"><a style="font-weight:normal;text-decoration:underline;">promotions page</a></p>
+                        
+        	</div><!--end bottom3-->
+            </li>
+        </ul>
+        </div><!--end block-->
+
+	</div><!--end container-->
+</div><!--end wrapper-->
+</body>
+</html>
